@@ -11,10 +11,18 @@ export default function TextForm(props) {
         setText(newText);
     }
 
+    const handleClear = ()=>{
+        setText("");
+    }
+
+    const handleReset = ()=>{
+        setText('Enter text here');
+    }
+
     const handleOnChange = (e)=>{
         setText(e.target.value);
     }
-    const [text, setText] = useState('Enter text here..');
+    const [text, setText] = useState('Enter text here');
     return (
         <>
         <div className='container'>
@@ -23,7 +31,10 @@ export default function TextForm(props) {
                 <textarea className="form-control" id="box" rows="6" value={text} onChange={handleOnChange}></textarea>
             </div>
             <button className="btn btn-primary mx-2" onClick={handleUppercase}>Convert to uppercase</button>
-            <button className="btn btn-primary" onClick={handleLowercase}>Convert to lowecase</button>
+            <button className="btn btn-primary mx-2" onClick={handleLowercase}>Convert to lowecase</button>
+            <button className="btn btn-primary mx-2" onClick={handleReset}>Reset</button>
+            <button className="btn btn-primary mx-2" onClick={handleClear}>Clear</button>
+
         </div>
         <div className="container my-4">
             <h3>Your text summary</h3>
