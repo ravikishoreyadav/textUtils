@@ -18,7 +18,10 @@ export default function TextForm(props) {
     const handleReset = ()=>{
         setText('Enter text here');
     }
-
+    const handleSpace = () =>{
+        let newText = text.replace(/\s+/g, ' ').trim();
+        setText(newText);
+    }
     const handleOnChange = (e)=>{
         setText(e.target.value);
     }
@@ -34,6 +37,7 @@ export default function TextForm(props) {
             <button className="btn btn-primary mx-2" onClick={handleLowercase}>Convert to lowecase</button>
             <button className="btn btn-primary mx-2" onClick={handleReset}>Reset</button>
             <button className="btn btn-primary mx-2" onClick={handleClear}>Clear</button>
+            <button className="btn btn-primary mx-2" onClick={handleSpace}>Remove Extra Spaces</button>
 
         </div>
         <div className="container my-4">
